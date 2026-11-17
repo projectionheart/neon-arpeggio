@@ -16,7 +16,7 @@ There is no footage, no editing timeline and no drawing program. Every one of th
 | | |
 |---|---|
 | ![La città](docs/stills/1-citta.png) | ![La strada](docs/stills/2-strada.png) |
-| ![Il bar](docs/stills/3-bar.png) | ![Il sogno](docs/stills/4-sogno.png) |
+| ![Il bar](docs/stills/3-bar.png) | ![La dissolvenza](docs/stills/4-dissolvenza.png) |
 
 ## Run it
 
