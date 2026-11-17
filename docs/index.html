@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="it">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080612">
 <title>Neon Arpeggio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="A playable 8-bit point-and-click music video by AV Medicine Show.">
@@ -13,21 +18,34 @@
   color-scheme: dark;
 }
 html, body { background: var(--blk); color: var(--wht); }
+* { box-sizing: border-box; }
 body {
+  margin: 0; min-height: 100vh; min-height: 100dvh;
   font-family: var(--pixel); font-size: 16px; line-height: 1.5;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 24px 48px;
+  padding: max(12px, env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px))
+           max(12px, env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
   -webkit-font-smoothing: none; font-smooth: never;
+  display: flex;
 }
-.wrap { max-width: 960px; margin: 0 auto; display: grid; gap: 20px; }
-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
-h1 { margin: 0; font-size: 32px; font-weight: normal; letter-spacing: 2px; color: var(--wht); text-shadow: 2px 2px 0 var(--mag); }
-.by { color: var(--amber); letter-spacing: 1px; }
+.wrap { flex: 1; width: 100%; max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
+.title { display: flex; flex-direction: column; }
+h1 { margin: 0; font-size: 28px; line-height: 1.1; font-weight: normal; letter-spacing: 2px; color: var(--wht); text-shadow: 2px 2px 0 var(--mag); }
+.by { color: var(--amber); letter-spacing: 1px; font-size: 14px; }
 
-/* the game screen: 320x180 logical pixels, every overlay sized in --px */
+/* tabs: GIOCA (the game) and INFO (how to play, script, credits) */
+.tabs { display: flex; gap: 6px; }
+.tab { font: inherit; background: var(--navy); color: var(--gry); border: 2px solid var(--dpur); padding: 4px 12px; cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--mag); border-color: var(--pink); color: var(--wht); }
+.tab:focus-visible { outline: 2px solid var(--lcyn); outline-offset: 2px; }
+.panel[hidden] { display: none !important; }
+#panel-play { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+#panel-info { display: grid; gap: 24px; align-content: start; }
+
+/* the game screen: 320x180 logical pixels, every overlay sized in --px.
+   Sized to fit the viewport height too, so header + screen + controls never scroll. */
 .screen {
-  position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9;
+  position: relative; width: 100%; width: min(100%, calc((100dvh - 190px) * 16 / 9)); margin: 0 auto; aspect-ratio: 16 / 9;
   background: var(--blk); outline: 2px solid var(--dpur); outline-offset: 4px;
   overflow: hidden; user-select: none; -webkit-user-select: none; touch-action: manipulation;
   cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAAlUlEQVR4XsXVsQqAMAwE0FZEnO1S+v/fJi46i4ti4ToES9Um6YGgDuUZ4WLGYTrvyzCnYz4vJR3MLRcT97Av8xpvfXBx3vux2ZoxyYu55XpiLrm+uFbeTvxX3l78Vd5e7IN7rA50Oe0WPTFkaDuat60nJrZ030GE91SOLyrJxcRpg1ABnrFRcjPPRUxc3Gu5f1CKmPgCBURQ5nS0gFIAAAAASUVORK5CYII=) 0 0, default;
@@ -69,7 +87,8 @@ h1 { margin: 0; font-size: 32px; font-weight: normal; letter-spacing: 2px; color
 }
 .big:hover { background: var(--pink); color: var(--blk); }
 
-.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; width: 100%; max-width: calc((100dvh - 190px) * 16 / 9); margin: 0 auto; }
+.controls[data-nofs] #fs { display: none; }
 .ctl { font: inherit; background: var(--navy); color: var(--wht); border: 2px solid var(--dpur); padding: 2px 10px; cursor: pointer; }
 .ctl:hover { border-color: var(--cyan); color: var(--lcyn); }
 .time { margin-left: auto; color: var(--gry); font-variant-numeric: tabular-nums; }
@@ -89,14 +108,37 @@ dd { margin: 0; color: var(--gry); }
 footer { color: var(--gry); border-top: 2px solid var(--dpur); padding-top: 12px; }
 footer a { color: var(--lcyn); }
 @media (prefers-reduced-motion: reduce) { .ring::after { animation: none; opacity: 0; } }
+@media (pointer: coarse) { .keys { display: none; } }
+@media (max-width: 520px) {
+  h1 { font-size: 22px; }
+  .by { font-size: 12px; }
+  .ctl { padding: 4px 8px; }
+}
+/* phone held sideways: drop the subtitle and tighten so the screen gets the height */
+@media (orientation: landscape) and (max-height: 500px) {
+  body { padding-top: max(6px, env(safe-area-inset-top, 0px)); padding-bottom: max(6px, env(safe-area-inset-bottom, 0px)); }
+  .wrap { gap: 6px; }
+  h1 { font-size: 18px; } .by { display: none; }
+  .tab { padding: 0 10px; }
+  #panel-play { gap: 10px; }
+  .screen { width: min(100%, calc((100dvh - 110px) * 16 / 9)); }
+  .controls { max-width: calc((100dvh - 110px) * 16 / 9); }
+}
 </style>
 
 <div class="wrap">
   <header>
-    <h1>NEON ARPEGGIO</h1>
-    <span class="by">AV MEDICINE SHOW</span>
+    <div class="title">
+      <h1>NEON ARPEGGIO</h1>
+      <span class="by">AV MEDICINE SHOW</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Sezioni">
+      <button class="tab" role="tab" id="tab-play" aria-controls="panel-play" aria-selected="true" type="button">GIOCA</button>
+      <button class="tab" role="tab" id="tab-info" aria-controls="panel-info" aria-selected="false" type="button">INFO</button>
+    </nav>
   </header>
 
+  <main class="panel" id="panel-play" role="tabpanel" aria-labelledby="tab-play">
   <div class="screen" id="screen">
     <video id="vid" src="neon_arpeggio_web.mp4" poster="poster.png" playsinline preload="auto"></video>
     <div class="g action" id="action"></div>
@@ -119,8 +161,10 @@ footer a { color: var(--lcyn); }
     <button class="ctl" id="fs" type="button">SCHERMO INTERO</button>
     <span class="time" id="time">0:00 / 1:07</span>
   </div>
+  </main>
 
-  <section class="notes">
+  <section class="panel" id="panel-info" role="tabpanel" aria-labelledby="tab-info" hidden>
+  <div class="notes">
     <div>
       <h2>COME SI GIOCA</h2>
       <p>The four verbs are the four scenes. GUARDA is the rainy city, CAMMINA the street outside Caffè Neon, PARLA the bar and Volpe, BEVI the espresso and what it does to you.</p>
@@ -138,9 +182,10 @@ footer a { color: var(--lcyn); }
         <dt>VOLPE</dt><dd>Every sip is a dream, idiot… and don't thank me. Ever.</dd>
       </dl>
     </div>
-  </section>
+  </div>
 
   <footer>Music and concept by AV Medicine Show. Every frame is drawn by code at 320×180 in 32 colours. Source: <a href="https://github.com/projectionheart/neon-arpeggio">github.com/projectionheart/neon-arpeggio</a></footer>
+  </section>
 </div>
 
 <script>
@@ -311,6 +356,25 @@ footer a { color: var(--lcyn); }
     else if (e.key === ' ') { e.preventDefault(); pp.click(); }
     else if (e.key === 'r' || e.key === 'R') { if (!started) begin(); seek(0); }
   });
+
+  // ---- tabs (GIOCA / INFO); #info in the URL opens the info tab
+  const tabs = { play: document.getElementById('tab-play'), info: document.getElementById('tab-info') };
+  const panels = { play: document.getElementById('panel-play'), info: document.getElementById('panel-info') };
+  const show = name => {
+    for (const k in tabs) {
+      tabs[k].setAttribute('aria-selected', String(k === name));
+      panels[k].hidden = k !== name;
+    }
+    if (name === 'info') vid.pause();
+    else fit();
+    history.replaceState(null, '', name === 'info' ? '#info' : location.pathname + location.search);
+  };
+  tabs.play.addEventListener('click', () => show('play'));
+  tabs.info.addEventListener('click', () => show('info'));
+  if (location.hash === '#info') show('info');
+
+  // hide the fullscreen button where only the bare video could go fullscreen (iPhone)
+  if (!(screen.requestFullscreen || screen.webkitRequestFullscreen)) document.querySelector('.controls').dataset.nofs = '';
 
   // ---- per-frame UI
   const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
