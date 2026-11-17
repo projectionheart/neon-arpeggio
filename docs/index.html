@@ -255,7 +255,7 @@ footer a { color: var(--lcyn); }
   // ---- build the verb bar (positions match the in-game bar: 8px per glyph + 6px padding)
   const verbBtns = {};
   let x = 3;
-  SCENES.map(s => s.verb).sort((a, b) => ['CAMMINA', 'GUARDA', 'PARLA', 'BEVI'].indexOf(a) - ['CAMMINA', 'GUARDA', 'PARLA', 'BEVI'].indexOf(b))
+  SCENES.map(s => s.verb).sort((a, b) => ['GUARDA', 'CAMMINA', 'PARLA', 'BEVI'].indexOf(a) - ['GUARDA', 'CAMMINA', 'PARLA', 'BEVI'].indexOf(b))
     .forEach(v => {
       const w = v.length * 8 + 6;
       const b = document.createElement('button');
@@ -288,8 +288,10 @@ footer a { color: var(--lcyn); }
   };
   const goVerb = v => { if (!started) begin(); const s = SCENES.find(s => s.verb === v); seek(s.start); say(s.idle); };
 
+  // starting always opens on GUARDA: the rainy city, from the top
   const begin = () => {
-    started = true; startEl.hidden = true; vid.muted = false;
+    started = true; startEl.hidden = true; fineEl.hidden = true; vid.muted = false;
+    vid.currentTime = SCENES[0].start; say(SCENES[0].idle);
     vid.play().catch(() => { vid.muted = true; vid.play().catch(() => {}); });
   };
   document.getElementById('go').addEventListener('click', e => { e.stopPropagation(); begin(); });
@@ -352,7 +354,7 @@ footer a { color: var(--lcyn); }
   addEventListener('keydown', e => {
     if (e.target.closest('input, textarea')) return;
     const n = '1234'.indexOf(e.key);
-    if (n >= 0) goVerb(['CAMMINA', 'GUARDA', 'PARLA', 'BEVI'][n]);
+    if (n >= 0) goVerb(['GUARDA', 'CAMMINA', 'PARLA', 'BEVI'][n]);
     else if (e.key === ' ') { e.preventDefault(); pp.click(); }
     else if (e.key === 'r' || e.key === 'R') { if (!started) begin(); seek(0); }
   });
