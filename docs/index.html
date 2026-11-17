@@ -1,0 +1,331 @@
+<title>Neon Arpeggio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A playable 8-bit point-and-click music video by AV Medicine Show.">
+<style>
+/* Layout: one arcade screen centred on a dark page, verb bar laid over its bottom edge like the game; notes underneath. Single committed dark look. */
+@font-face { font-family: "Unifont"; src: url(data:font/otf;base64,T1RUTwALAIAAAwAwQ0ZGIJIo2z8AAADEAAAcqkdQT1MAGQAMAAAjIAAAABBHU1VCpfXA+wAAIzAAAAAqT1MvMm3XBXkAACA0AAAAZGNtYXAjQ0e0AAAitAAAAExoZWFkV2F49QAAHXAAAAA2aGhlYQA6AKgAACAQAAAAJGhtdHgOAAAAAAAdqAAAAmhtYXhwAMVQAAAAALwAAAAGbmFtZS5dRC4AACCYAAACGnBvc3QAAwACAAAjAAAAACAAAFAAAMUAAAEABAIAAQEBCFVuaWZvbnQAAQEBG/gb+ByLDB4dAADfAAwi1w/nDCUcHIgMJO8RAAMBAQYOFUFkb2JlSWRlbnRpdHlVbmlmb250AAABACFeAKFfICcAIK0AJZICAwABAAAAAMUAxQIAAQADAAUAFQAkAEgAeQC7APcBAAEZATIBYwF0AYMBjAGVAbIB5wH8Ah8CQAJfAngClQKoAskC5gL2AwwDNQNFA24DjgO5A9YD7wQIBCEEMgRBBGAEcQSCBJcExATPBOgFBQUaBS0FTgVtBZIFnwWwBdEF6gYTBjQGVQZiBn8GjAalBq0GvgbfBvwHFQcyB00HYgeLB6AHtgfUB/0IDAgjCDgITQhqCIcInAjBCNYI6wkECR0JRgljCYQJrQm2Cd8J+An6CgoKLwpQCn0Krgq+CusK+gs2C1QLgwuODHYMsAy5DM4M5g0FDSYNNw1WDWsNdA2ADZUNsQ3gDhMOSw6JDqkO0Q75DyUPVQ9/D68Pzg/vEAsQJxBHEGUQgRCdEL0Q2xD8ESwRTBFsEZARuBHaEgMSMBJMEmgSiBKmEtIS7xMWE0ITbhOeE9IUABQ0FFsUfBSiFMgU8hUaFTQVThVsFYgVsxXbFfsWGxY/FmcWiRagFskW6RcJFy0XTxd3F5QXvhfTGAQY1RneGpaLDosOi5uzFW+PpweHaxWDj5MHDouTuxV7j5sHlxZ7j5sHDouXsxV/g4ePg4d7j5eTf4+Xk4+Hk4+bh3+DlweHexWTg4MGDoubsxWHg4eHg4+Tk4ODh5N/g4+Hh4+Hk4ePj5OPj5OHg4OTk4+Dl5OHj4+Hj4OPBw6Lk7MVh4eDj4eTg4eHh4OHh4+Pj5OPg4+Hk4+Dk4ePj4eTg4+Th4+Dk4ePg5OTg4+Hj4+PB5OPj4eHh4OHk4ePBw6Ll7MVh4eDj4OHh4d/j5ePj4+Hj4ePh4eHf4eXj5OHj4+Hk4+Th4OHj4eTj4+Hh4ePh5OXB4OPk4ePBw6Lm7sVe4+bBw6Ln7cVh4eDh3OPg4+Hj4+Hk4ejj5OPjwcOi5O3FYePg49zh4OHh4+Pj5OPo4eTh48HDoubqxV/h4+Hj4eHj4ePh4eHh4ePj4+Pj3+Pl4+Hj4ePj4ePh4+Pj4+Ph4eHh4eXBw6Lm6sVf3+Hl3+Pl5ePf5cHDouXkxWHj4OHh4+Pj5cHDouTnxWHm48HDouXkxWDk5MHDoujsxWDh4eHg4eDh4eHg4+Tj4+Pk4+Tj4+PkwcOi5ezFYeHh4dzj4ePh5OPg4+Hj4+Pj4+Hh4ebj4+Th4+Hh4eHh4+Pj3uHh4+Pj6OHj4ePBw6Lm7MVh4eHh4ePj49vg4efj4OvBw6Lk7MVh4eDj5Obf4OHh4eHh4d/o493k4+Pj4+Tj4+Xh48HDouTsxWHh4OPk5t/f4eXe3uTh4OPh5uPj5uHj4+Xh48HDoufsxWHh4ePe3+Tj4+Pj4eHh4eHf5t/j5ePj4ejBw6Lj7MVd597e4+Hh4+Hm4+Pm4ePe5efjwcOi5ezFYeHh4dvj4ebj4+bh3t7m5uPe5OPj5ePBw6Lj7MVh5+Dh3+He4+bj5ePlwcOi5OzFYeHf4+Hh3uPh5uPe5ube4+bh497l5t/j5eHjwcOi5OzFYeHf4+Xm397h5t/h4d/h5ePj4+Pp4ePBw6Ll6sVg5OTB4N3FYOTkwcOi5erFYOTkweDdxWHj4OHh4+Pj5cHDoujrxWHh4eHh4eHh4ePh4+Hj4ePh4+Ph4+Hj4ePh4+Pj4+Pj4+PjwcOi4+nFYejjwdzexWHo48HDouPrxWHj4ePh4+Hj4eHh4eHh4eHh4+Pj4+Pj4+Pj4+Hj4ePh4+HjwcOi5OzFYeHg4+Tm3+Hh4eDj5OPj4+Xh48Hg2sVg4+TBw6Ll7MVh4eHh3OPh4+Hm497j4ejj4+Xg4ePh4ePh49/g5uHe4+Hl6eHjwcOi5ezFYeTg4+De5OPk4eDh2+Pm5t7j6eHk4ePBw6Lj7MVY5+Pj5uHe3ubm4+Pl4d/e5ebjwcOi5OzFYeHa4+Hm4+Pk4eDe6ubg4+Th48HDouPsxVjm4+Pj4+jh3OHh3+rl4ePj4ePBw6Lj7MVY6OPd5ubj3uXn48HDouPsxVjj5+bj3uXn48HDouTsxWHh2uPh5ePj4ePn3+Hk4OHh3+rm4OPk4ePBw6Lj7MVY4+fm3ePs4d7e5sHDouTsxWHk2uDh5+Pg6uTjwcOi5ezFYeTa3+Th4OPh5ePj6uTjwcOi4+zFWOPm4+Hj4ePh4+Hj4+Hj4ePh4+Hk4+Pj4+Pj4+Ph4eHh4eHh4eHmwcOi4+zFWOjj3evBw6Lj7MVY4+jj4OTk49zj7OHg4eDg5OHkwcOi4+zFWOPp4+Dj4OPg4+Hj7OHb4eTh5OHk4ePBw6Lk7MVh4drj4ebj3urm2uPq4ePBw6Lj7MVY4+fm4+Pl4d/e5ebjwcOi5OzFYebb4eHg4+Tj4OHh6eHa4+Hm4eTj4OPj6uHjwcOi4+zFWOPn5OHj4OPg4+Th5OHj4+Pj5eHf3uXm48HDouTsxWHh3+Ph5OHk397k4eDj4ebj4+Xh4+Dj4OXm4OPk4ePBw6Lj7MVh5dnj6+XjwcOi4+zFWePh5uPj6+HZ3uvBw6Lj7MVf49/j4OPg4+Tj5OPl4+Xh3+Hf4eDh5OHl4eXBw6Lj7MVY4+Tj5OTg4+Dj7OHc4eTg4OHowcOi4+zFYOPg4+Dh4OHg4+Tj5OTg4+Dj5OHk4eTj5OPk4eDh4ODk4eTBw6Lj7MVg4+Dj4ePd4+fj4+Pk4+Th4OHg4eHh4+Hk4eTBw6Lj7MVh5+Dh4eHh4eHh4eHf6OPd5OPj4+Pj4+Pj4+XBw6Lm7cVW5ePg7OTjwcOi4+zFYOPh4+Dj4OPh4+Dj5OHj4eTh5OHj4eTBw6Lj7cVh5Njg4eXuwcOi5e7FYeHh4eHj4+Pj5OHj4ePj4ePh48HDouPFoenjwcOi5O/FYePh4+Hj4+Hj4ePBw6Lk6sVh4eHj4+bg3uHh3+Ph5ePf5ebg4eHj4ePp4ePBw6Lj7cVX4+Pj4eXj4+jh3N/j4ebj4+Xj3+Hh5sHDouTqxWHh3OPh5uPj4+Hh3ujm4ePj4ePBw6Lo7cVe4ePf4eHc4+jl4ePe4eHf4eXj4+Hj7cHDouTqxWHm4N7k4dzj4ebj4+Ph4d7l5+Xh48HDoubtxWHh3+Dh5Nzj6OTj4OXk48HDoujrxWDh49/h4d/j5eXf39/h4OPh5uPe5Obg4+Th49/j5OPj5ePkwcOi4+3FV+Po4+Pl2+Pp4ePf4eHmwcOi5u3FYOPkweDfxWHj3ODh5+Pg6cHDouftxWDj5MHg38Vh49vh4eDj4eHj4eTj4+Pj6sHDouPtxVfj5uPh4+Hj4ePh4+Ph4+Hj4ePh4+Pj4+Pj4+Hh4eHh4eHowcOi5e3FYePZ4OHn4+DswcOi4+rFWuPp5Nvj6eTb4+nh4+Dh4ePBw6Lj6sVa4+jj4+Xb4+nh49/h4ePBw6Lk6sVh4dzj4ebj3ujm3OPo4ePBw6Lj6sVY4+Xj4eXj4+jh3N/j4ebj4+Xj3+Hh48HDouTqxWHh3OPh5ePf6OXh497h4ePf4+zh4eHjwcOi4+rFWuPo4+Pl4OPk4ePf4eHjwcOi5OrFYeHg4+Hk4eTg3uPh4ePh5uPj5OHj4OPg5Obh4+Ph48HDouXsxV/g4eTd4+Hk4+Dn5OPg5cHDouPqxVvj4eXj4+Hj6uHc4eHf6cHDouPqxV/j3+Pg5OTj5ePl4d/h3+Dl4eXBw6Lj6sVb4+Hk4+Ph5OPj6eHb4Ojh3ODpwcOi4+rFYOPh4+Dh4eHg4+Tj4+Th4+Dj5OHj4eTj4+Pk4eDh4eDj4eTBw6Lj6sVd4+Hj4eTj49/e4ebj4+vh3eHh4OPh58HDouPqxWHn4eHh4eHh4eHh4eDo493j4+Pj4+Pj4+Pj5MHDoubtxWHh4OPg4eHh4ePh4+Dh4OPh5OPg5OPk4ePh4+Pj4+Th5OTjwcOi5u7FVOPwwcOi5O3FYeTg4eDj4ePh4eHh4OPg4OHk4+Pk4eTj4+Pj4ePh5OPk4ePBw6Lk7cVh4eDj5OTh4+Hk4+Pk4eDg4+HjwcOiw6Lm7MVg4+TB4d/FW+PpwcOi5uzFYODh4d7j5uTe4OHk4OPk5OPj4+Hh4Obk4ePj4ePg5MHDoubsxWHh3+Dh5N/h4eHh5OPm4ePj4ePf5eTj4OXl48HDouPrxWHj4OHg4+Dh4ePj5uHj4+Hk4eHg4+Hk4+Pk4ePg4+Th5OPj4eHe48HDouPsxWHj4ePh4+Hf4eXh3+Hl3+Pl5ePf4+Xj3+Pj4+Pj4+Ph4eHh4eHh4+Hj4ePBw6Lm7MVe4+bB4dzFXuPmwcOi5OzFYeHg4+Hh4OPh5uDe4+Hh4+Hm4+Pk4ePe5Obg4+Th497k5uHj4+HjwcOi5PDFYOPkweTFoOPkwcOi5OzFYeHh4dzj4ePh5uPe4+Ho4+Pm4ePc4eHj4+Po4ePh48Hf4MVh4d7j4eTj4+Ph4eDm5OHj4+HjwcOi5e7FYeXh3+Hh4ePj5eHf4ebm4ePB3tzFYefjwcOi5evFYOHg4eHj4OPg4+Th5OHj4+Tj5MHkxaDh4OHh4+Dj4OPk4eTh4+Pk4+TBw6Lj5sVh59/j5sHDsMEh4+PB48Wh4+PB48Wh4+PB48Wh4+PB48Wh4+PB48Wh4+PB48Wh4+PB48Wh4+Hj4+HjwdPgxWHj48Hj4cVh4OHk4eTh3+Ph4ePh4eHj4+Xj4+Ph4+Dj5ePB48Wd4+Tk4OPm4+Hj3+Pl4+Pk4+Dh4eHh4+Hj4ODg5MHq4MVh4+PB4eDFYePjweHgxWHj48HS4cVh4+PB5+HFYebjwefFoePjwdLhxWHj48Hw4cVh4+PB0uHFYePh4+Ph48Hk4cVh4+PB48Wh4+PB48Wh4+PB48Wh4+PB48Wh4+PB48Wh4+PB48Wh4+PBw6Lk7MVh4eHh3OPh4+Hm497j4ejj3OPk4+Hj4ePh4+Ph4+Hk4+Th4ODk5OPf4+bh49zj6OHB4+HjwcOi4+7FYejjwcOi5ezFYeHg4+Hk4+Dk5ODj5OHjwcOi5uzFX9/h5d/j5eXj3+XB3trFYenjwcOi5O3FYeHh4+Pl4ODh4eHh4Ofj3uPj4+Tj4+Th48HDouTtxWHh4ePj5eDf4eXg3+Ph4ePh5ePj5OHj4+Th48HDoufvxWHh4eHh4+Pj4+PjwcOi4+rFWeHh4+Pj5OPh5OPk4ePj4enh3OHh4OPh6MHDouTsxWHh3+Ph5Nzj7OPY4+zj48HDouXoxWDk5MHDoubFoeDh5OPj48HDouXtxWHh4eHh4+Pj3uDh5+Pg6MHDouXuxWHh3+Ph5ePf5eXf4+Xh48He3MVh5+PBw6Lj68Vg4+Dj4eHg4eDj5OPk4+Ph5OHkweTFoOPg4+Hh4OHg4+Tj5OPj4eTh5MHDouTsxWHh4ePf4+Dh4eHg4+Tj4+Pg5OHj5+Hh4eHj4eHj4eTj5OPj4+Th4OHh4eDh58HDouTsxWHh4ePf4+Dh4eHg4+Tj4+Tj4+Dh4eHh5ePh4+Pk4ePh4eHj4+Tj4+Pk4eDh4eHg4cHnwcOi4+zFYeTh4eHj4eDh5ODh4eHg4+Tj4+Pg5OHj5+Hh4eHj4eHj4eTh4+Ph4+Tj4+Pk4eDhweHg4+Pj4ePBw6Ll7MVg4+TB4d/FYOHh4d/j4ebj4+Th4N7l4+Pj5MHDouTwxWHk4eTj4OPB4d7FYeTg4+De5OPk4eDh2+Pm5t7j6eHk4ePBw6Lm8MVh4OHk4+Tjwd/exWHk4OPg3uTj5OHg4dvj5ube4+nh5OHjwcOi5fDFYeHh4+Pk4ePj4ePB4N7FYeTg4+De5OPk4eDh2+Pm5t7j6eHk4ePBw6Lk8MVh4eHj4+Th5OPj4+Hh4OPB4d7FYeTg4+De5OPk4eDh2+Pm5t7j6eHk4ePBw6Lk8MVg4+TB5MWg4+TB397FYeTg4+De5OPk4eDh2+Pm5t7j6eHk4ePBw6Ll8MVh4eHj4eTj4OPk4ePj4ePB4N7FYeTg4+De5OPk4eDh2+Pm5t7j6eHk4ePBw6Ll7MVh49/g5OPj4eHh2uPn5N3m49/m5ePf5eXjwcOi5OzFYeHa4+Hk4eDh5OPj4+Pj4+Th4N7q5uDj5OHjwcOi5PDFYeTh5OPg48Hf3sVY6OPd5ubj3uXn48HDoubwxWHg4eTj5OPB3d7FWOjj3ebm497l5+PBw6Ll8MVh4eHj4+Th4+Ph48He3sVY6OPd5ubj3uXn48HDouTwxWDj5MHkxaDj5MHd3sVY6OPd5ubj3uXn48HDouXwxWHk4eTj4OPB397FYeTa4OHn4+Dq5OPBw6Lm8MVh4OHk4+Tjwd7exWHk2uDh5+Pg6uTjwcOi5fDFYeHh4+Pk4ePj4ePB397FYeTa4OHn4+Dq5OPBw6Lk8MVg4+TB5MWg4+TB3t7FYeTa4OHn4+Dq5OPBw6Lj7MVe4eHj3ebj4+Pj6OHc4eHf5uTj4OXl4ePj4ePBw6Lk8MVh4eHj4+Th5OPj4+Hh4OPB397FWOPp4+Dj4OPg4+Hj7OHb4eTh5OHk4ePBw6Lk8MVh5OHk4+DjweDexWHh2uPh5uPe6uba4+rh48HDoubwxWHg4eTj5OPB3t7FYeHa4+Hm497q5trj6uHjwcOi5fDFYeHh4+Pk4ePj4ePB397FYeHa4+Hm497q5trj6uHjwcOi5PDFYeHh4+Pk4eTj4+Ph4eDjweDexWHh2uPh5uPe6uba4+rh48HDouTwxWDj5MHkxaDj5MHe3sVh4drj4ebj3urm2uPq4ePBw6Lj6cVh4+Hj4eHh4eHj4+Pj5OHj4ePj4ePh4+Pj4+Ph4eHh4OPh48HDoujtxWDh49/h4dvj4eHg4+Tj5OPk4eDh6OXg4eDj5OPc3+Hl4+Pp4ePj5MHDouTwxWHk4eTj4OPB397FWePh5uPj6+HZ3uvBw6Lm8MVh4OHk4+Tjwd3exVnj4ebj4+vh2d7rwcOi5fDFYeHh4+Pk4ePj4ePB3t7FWePh5uPj6+HZ3uvBw6Lk8MVg4+TB5MWg4+TB3d7FWePh5uPj6+HZ3uvBw6Lm8MVh4OHk4+Tjwd3exWDj4OPh493j5+Pj4+Tj5OHg4eDh4eHj4eTh5MHDouPtxVfj5eXj4+Pj5OHg4eHf5uXh4+Ph49/kwcOi5OzFYeHZ4+vl4OHh4eHk4ePf4OPh4ePh5OPj5eHj4eTj5OHjwcOi5O7FYeTh5OPg48Hg3sVh4eHj4+bg3uHh3+Ph5ePf5ebg4eHj4ePp4ePBw6Lm7sVh4OHk4+Tjwd7exWHh4ePj5uDe4eHf4+Hl49/l5uDh4ePh4+nh48HDouXuxWHh4ePj5OHj4+Hjwd/exWHh4ePj5uDe4eHf4+Hl49/l5uDh4ePh4+nh48HDouTuxWHh4ePj5OHk4+Pj4eHg48Hg3sVh4eHj4+bg3uHh3+Ph5ePf5ebg4eHj4ePp4ePBw6Lk7sVg4+TB5MWg4+TB3t7FYeHh4+Pm4N7h4d/j4eXj3+Xm4OHh4+Hj6eHjwcOi5e/FYeHh4+Hk4+Dj5OHj4+Hjwd/dxWHh4ePj5uDe4eHf4+Hl49/l5uDh4ePh4+nh48HDouTqxWHh4ePj5ODg4eHf4+Xk3+Dh5+Pj4+Hh4OXl5eHg4OTk48HDouTqxWHh3OPh5OHg4eTj4+Pj4+Pj4eHe6Obh4+Ph48HDouTuxWHk4eTj4OPB4N7FYebg3uTh3OPh5uPj4+Hh3uXn5eHjwcOi5u7FYeDh5OPk48He3sVh5uDe5OHc4+Hm4+Pj4eHe5efl4ePBw6Ll7sVh4eHj4+Th4+Ph48Hf3sVh5uDe5OHc4+Hm4+Pj4eHe5efl4ePBw6Lk7sVg4+TB5MWg4+TB3t7FYebg3uTh3OPh5uPj4+Hh3uXn5eHjwcOi5O7FYeTh5OPg48Hh3sVh49zg4efj4OnBw6Lm7sVh4OHk4+Tjwd/exWHj3ODh5+Pg6cHDouXuxWHh4ePj5OHj4+HjweDexWHj3ODh5+Pg6cHDouTuxWDj5MHkxaDj5MHf3sVh49zg4efj4OnBw6Lk7sVh5OHh4eHh4+Pj4+Ph4+De4eHd4+Hm497n5t3j6uHk4+Ph4eDjwcOi5O7FYeHh4+Pk4eTj4+Ph4eDjwd/exVrj6OPj5dvj6eHj3+Hh48HDouTuxWHk4eTj4OPB4N7FYeHc4+Hm497o5tzj6OHjwcOi5u7FYeDh5OPk48He3sVh4dzj4ebj3ujm3OPo4ePBw6Ll7sVh4eHj4+Th4+Ph48Hf3sVh4dzj4ebj3ujm3OPo4ePBw6Lk7sVh4eHj4+Th5OPj4+Hh4OPB4N7FYeHc4+Hm497o5tzj6OHjwcOi5O7FYOPkweTFoOPkwd7exWHh3OPh5uPe6Obc4+jh48HDouXqxWHk48He38Vh6OPB3t/FYeTjwcOi6OvFYd7h4dzj4eHh4+Pm49/j4+Tj5OHg4eDh5+Xh493j6OHj4+PBw6Lk7sVh5OHk4+Djwd/exVvj4eXj4+Hj6uHc4eHf6cHDoubuxWHg4eTj5OPB3d7FW+Ph5ePj4ePq4dzh4d/pwcOi5e7FYeHh4+Pk4ePj4ePB3t7FW+Ph5ePj4ePq4dzh4d/pwcOi5O7FYOPkweTFoOPkwd3exVvj4eXj4+Hj6uHc4eHf6cHDoubuxWHg4eTj5OPB3d7FXePh4+Hk4+Pf3uHm4+Pr4d3h4eDj4efBw6Lj7cVV4+Xj4eXj4+jh3N/j4ebj4+Xj3+Hh5sHDouTuxWDj5MHkxaDj5MHd3sVd4+Hj4eTj49/e4ebj4+vh3eHh4OPh58HDouPkxWDj5MHkxaDj5MHkxaDj5MHDoubsxWHh4eHh4eHj4eHh4+Dj4ePh5OPj4+Hh4OPh5OXj3+Pl49/j4+Pk4ePj4ePBw6LwwSHj48HlxaHj48Hf4cVh4+PB5cWh4+PB2+HFYePjweXFoePjwd/hxWHj48HlxaHj48Hb4cVh4+PB5cWh4+PB3+HFYePjweXFoePjwdvhxWHj48HlxaHj48Hf4cVh4+PB5cWh4+PB2+HFYePjweXFoePjwd/hxWHj48HlxaHj48Hb4cVh4+PB5cWh4+PB3+HFYePjweXFoePjwdvhxWHj48HlxaHj48Hf4cVh4+PB5cWh4+PB2+HFYePjweXFoePjwd/hxWHj48HlxaHj48HDovDBIePh4eHj4eHh4+Hh4ePh4eHj4eHh4+Hh4ePh4eHj4ePj4ePj4ePh4+Ph4+Hj4ePjweHj4ePh4+Hj4+Hj4ePh4+Hj4ePj4ePh4+Hj4ePh4+Hj4+Hj4ePh4+Hj4ePh4+Hj48Hh4+Hj4ePh4+Hj4ePj4ePh4+Hj4ePh4+Hj4ePj4ePh4+Hj4ePh4+Hj4+Hj4ePh4+H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) format("opentype"); font-display: block; }
+:root {
+  --blk: #080612; --navy: #100c26; --dpur: #221442; --plum: #6c2068;
+  --mag: #ff2e88; --pink: #ff78c8; --cyan: #2de2e6; --lcyn: #aafaff;
+  --amber: #ffc857; --gry: #787896; --wht: #f0ecff; --grn: #8cff6b;
+  --pixel: "Unifont", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --px: 2px;
+  color-scheme: dark;
+}
+html, body { background: var(--blk); color: var(--wht); }
+body {
+  font-family: var(--pixel); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 24px 48px;
+  -webkit-font-smoothing: none; font-smooth: never;
+}
+.wrap { max-width: 960px; margin: 0 auto; display: grid; gap: 20px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+h1 { margin: 0; font-size: 32px; font-weight: normal; letter-spacing: 2px; color: var(--wht); text-shadow: 2px 2px 0 var(--mag); }
+.by { color: var(--amber); letter-spacing: 1px; }
+
+/* the game screen: 320x180 logical pixels, every overlay sized in --px */
+.screen {
+  position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9;
+  background: var(--blk); outline: 2px solid var(--dpur); outline-offset: 4px;
+  overflow: hidden; user-select: none; -webkit-user-select: none; touch-action: manipulation;
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAAlUlEQVR4XsXVsQqAMAwE0FZEnO1S+v/fJi46i4ti4ToES9Um6YGgDuUZ4WLGYTrvyzCnYz4vJR3MLRcT97Av8xpvfXBx3vux2ZoxyYu55XpiLrm+uFbeTvxX3l78Vd5e7IN7rA50Oe0WPTFkaDuat60nJrZ030GE91SOLyrJxcRpg1ABnrFRcjPPRUxc3Gu5f1CKmPgCBURQ5nS0gFIAAAAASUVORK5CYII=) 0 0, default;
+}
+.screen.hot { cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAAl0lEQVR4XsXVMQqAMAwF0FZEnD1D3Xr/k7jVMziLi2LhdwiWqk3SD4I6lGeEHzMO03lfhjkd83kp6WBuuZi4h31el3gbnI/z3o/N1oxJXswt1xNzyfXFtfJ24r/y9uKv8vbi4PxjdaDLabfoiSFD29G8bT0xsaX7DiK8p3J8UUkuJk4bhArwjI2Sm3kuYuLiXsv9g1LExBfUzFHMZ8UOFAAAAABJRU5ErkJggg==) 0 0, pointer; }
+.screen video { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; display: block; }
+.g { position: absolute; font-family: var(--pixel); font-size: calc(16 * var(--px)); line-height: calc(16 * var(--px)); white-space: nowrap; }
+
+.bar { left: 0; right: 0; top: calc(162 * var(--px)); bottom: 0; background: var(--blk); border-top: var(--px) solid var(--plum); }
+.verb {
+  position: absolute; top: calc(1 * var(--px)); height: calc(15 * var(--px));
+  padding: 0; border: var(--px) solid var(--dpur); background: var(--navy); color: var(--gry);
+  font: inherit; line-height: calc(14 * var(--px)); text-align: left; padding-left: calc(2 * var(--px)); cursor: inherit;
+}
+.verb.on { background: var(--mag); border-color: var(--pink); color: var(--wht); }
+.verb:focus-visible, .slot:focus-visible, .ctl:focus-visible, .big:focus-visible { outline: calc(var(--px)) solid var(--lcyn); outline-offset: calc(var(--px)); }
+.slot { position: absolute; top: calc(1 * var(--px)); width: calc(18 * var(--px)); height: calc(15 * var(--px)); padding: 0; border: var(--px) solid #106e80; background: var(--navy); cursor: inherit; }
+.slot svg { width: 100%; height: 100%; display: block; shape-rendering: crispEdges; }
+
+.action { left: 0; right: 0; top: calc(145 * var(--px)); text-align: center; color: var(--lcyn); text-shadow: var(--px) var(--px) 0 var(--blk); pointer-events: none; }
+.ring { position: absolute; width: 0; height: 0; pointer-events: none; }
+.ring::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: calc(4 * var(--px)); height: calc(2 * var(--px));
+  transform: translate(-50%, -50%); border: var(--px) solid var(--cyan); border-radius: 50%;
+  animation: ring .45s steps(6) forwards;
+}
+@keyframes ring { to { width: calc(30 * var(--px)); height: calc(15 * var(--px)); border-color: var(--mag); opacity: 0; } }
+
+.cover {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: calc(8 * var(--px)); background: rgba(8, 6, 18, .72); text-align: center;
+}
+.cover[hidden] { display: none !important; }
+.cover p { margin: 0; color: var(--lcyn); font-size: calc(16 * var(--px)); line-height: calc(16 * var(--px)); text-shadow: var(--px) var(--px) 0 var(--blk); }
+.big {
+  font: inherit; font-size: calc(16 * var(--px)); line-height: calc(16 * var(--px));
+  padding: calc(4 * var(--px)) calc(10 * var(--px)); background: var(--mag); color: var(--wht);
+  border: var(--px) solid var(--pink); box-shadow: calc(2 * var(--px)) calc(2 * var(--px)) 0 var(--blk); cursor: inherit;
+}
+.big:hover { background: var(--pink); color: var(--blk); }
+
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ctl { font: inherit; background: var(--navy); color: var(--wht); border: 2px solid var(--dpur); padding: 2px 10px; cursor: pointer; }
+.ctl:hover { border-color: var(--cyan); color: var(--lcyn); }
+.time { margin-left: auto; color: var(--gry); font-variant-numeric: tabular-nums; }
+.track { flex-basis: 100%; height: 8px; background: var(--navy); border: 2px solid var(--dpur); position: relative; cursor: pointer; }
+.track i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--cyan); }
+.track b { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--mag); }
+
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
+.notes h2 { margin: 0 0 8px; font-size: 16px; font-weight: normal; color: var(--pink); letter-spacing: 2px; }
+.notes p { margin: 0 0 8px; max-width: 65ch; color: var(--wht); }
+.keys { color: var(--gry); }
+kbd { font: inherit; color: var(--amber); }
+dl { margin: 0; display: grid; gap: 10px; }
+dt { color: var(--cyan); }
+dt span { color: var(--gry); }
+dd { margin: 0; color: var(--gry); }
+footer { color: var(--gry); border-top: 2px solid var(--dpur); padding-top: 12px; }
+footer a { color: var(--lcyn); }
+@media (prefers-reduced-motion: reduce) { .ring::after { animation: none; opacity: 0; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>NEON ARPEGGIO</h1>
+    <span class="by">AV MEDICINE SHOW</span>
+  </header>
+
+  <div class="screen" id="screen">
+    <video id="vid" src="neon_arpeggio_web.mp4" poster="poster.png" playsinline preload="auto"></video>
+    <div class="g action" id="action"></div>
+    <div class="g bar" id="bar"></div>
+    <div class="cover" id="start">
+      <p>CAFFÈ NEON · ANNO 2099</p>
+      <button class="big" id="go" type="button">▶ INIZIA</button>
+      <p>TOCCA LE PAROLE E LE COSE</p>
+    </div>
+    <div class="cover" id="fine" hidden>
+      <p>FINE</p>
+      <button class="big" id="again" type="button">RICOMINCIA</button>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="track" id="track"><i id="fill"></i></div>
+    <button class="ctl" id="pp" type="button">PAUSA</button>
+    <button class="ctl" id="mute" type="button">AUDIO: SÌ</button>
+    <button class="ctl" id="fs" type="button">SCHERMO INTERO</button>
+    <span class="time" id="time">0:00 / 1:07</span>
+  </div>
+
+  <section class="notes">
+    <div>
+      <h2>COME SI GIOCA</h2>
+      <p>The four verbs are the four scenes. GUARDA is the rainy city, CAMMINA the street outside Caffè Neon, PARLA the bar and Volpe, BEVI the espresso and what it does to you.</p>
+      <p>Click people and things in the picture to jump to their moment. The inventory items have something to say too.</p>
+      <p class="keys"><kbd>1</kbd>–<kbd>4</kbd> verbs · <kbd>space</kbd> pause · <kbd>R</kbd> restart</p>
+    </div>
+    <div>
+      <h2>IL COPIONE</h2>
+      <dl>
+        <dt>TU <span>· you</span></dt><dd>Neon rains on the tired city. The shift is over, the night is not.</dd>
+        <dt>PUNK</dt><dd>Oi, brother of the rain, is there still moon espresso?</dd>
+        <dt>VOLPE</dt><dd>What do you want? I've no time for you… but the night is long. Sit down.</dd>
+        <dt>VOLPE</dt><dd>It's not like I made them for you! The code was just warm, that's all.</dd>
+        <dt>PUNK</dt><dd>Oh… the walls are breathing, and the neon sings in minor.</dd>
+        <dt>VOLPE</dt><dd>Every sip is a dream, idiot… and don't thank me. Ever.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer>Music and concept by AV Medicine Show. Every frame is drawn by code at 320×180 in 32 colours. Source: <a href="https://github.com/projectionheart/neon-arpeggio">github.com/projectionheart/neon-arpeggio</a></footer>
+</div>
+
+<script>
+(() => {
+  const DUR = 67.22;
+  const vid = document.getElementById('vid');
+  const screen = document.getElementById('screen');
+  const bar = document.getElementById('bar');
+  const actionEl = document.getElementById('action');
+  const startEl = document.getElementById('start');
+  const fineEl = document.getElementById('fine');
+
+  // one "game pixel" = screen width / 320
+  let px = 2;
+  const fit = () => { px = screen.clientWidth / 320; screen.style.setProperty('--px', px + 'px'); };
+  try { new ResizeObserver(fit).observe(screen); } catch (e) { addEventListener('resize', fit); }
+  fit();
+
+  const ease = x => { x = Math.min(Math.max(x, 0), 1); return x * x * (3 - 2 * x); };
+  const lerp = (a, b, u) => a + (b - a) * u;
+
+  // ---- scenes, one per verb
+  const SCENES = [
+    { verb: 'GUARDA',  start: 0,    end: 14.6, idle: 'GUARDA LA CITTÀ' },
+    { verb: 'CAMMINA', start: 14.6, end: 30,   idle: 'CAMMINA PER STRADA' },
+    { verb: 'PARLA',   start: 30,   end: 41.8, idle: 'PARLA CON VOLPE' },
+    { verb: 'BEVI',    start: 41.8, end: 99,   idle: 'BEVI ESPRESSO' },
+  ];
+  const sceneAt = t => SCENES.find(s => t >= s.start && t < s.end) || SCENES[3];
+
+  // Volpe's position along the counter, same choreography as render.py
+  const volpeX = t => {
+    const ts = t - 30, seats = [62, 112, 208, 258];
+    let r = 160;
+    seats.forEach((sx, i) => { const pt = 6 + i * 1.3; if (ts >= pt - 0.6) r = lerp(r, sx + 8, ease((ts - (pt - 0.6)) / 0.5)); });
+    if (ts > 11.1) r = lerp(r, 160, ease((ts - 11.1) / 0.6));
+    return r;
+  };
+
+  // ---- hotspots in 320x180 game coordinates
+  const HOT = [
+    { from: 8.6, to: 14.6, rect: t => [520 - 300 * ease(t / 14.6) - 3, 89, 78, 42], verb: 'CAMMINA', label: 'CAMMINA VERSO IL BAR', seek: 14.6 },
+    { from: 0, to: 14.6, rect: () => [0, 0, 320, 120], verb: 'GUARDA', label: 'GUARDA LA CITTÀ', say: 'PIOVE NEON. NESSUNO HA FRETTA.' },
+    { from: 14.6, to: 30, rect: () => [84, 115, 32, 33], verb: 'PARLA', label: 'PARLA COL PUNK', seek: 19.4 },
+    { from: 14.6, to: 30, rect: () => [202, 90, 28, 58], verb: 'CAMMINA', label: 'ENTRA NEL BAR', seek: 30 },
+    { from: 14.6, to: 30, rect: () => [26, 118, 52, 30], verb: 'GUARDA', label: 'GUARDA LA VESPA', say: 'VOLA SULLA PIOGGIA. NON CHIEDERE.' },
+    { from: 14.6, to: 30, rect: () => [232, 56, 64, 92], verb: 'GUARDA', label: 'GUARDA IL GRAFFITO', say: 'UNA FIRMA CHE CRESCE COME MUSCHIO.' },
+    { from: 30, to: 53.3, rect: t => [volpeX(t) - 24, 76, 48, 44], verb: 'PARLA', label: 'PARLA CON VOLPE', seek: 30.3 },
+    { from: 30, to: 53.3, rect: () => [118, 26, 101, 71], verb: 'PARLA', label: 'ORDINA ESPRESSO', seek: 34 },
+    { from: 30, to: 53.3, rect: () => [14, 20, 64, 64], verb: 'GUARDA', label: 'GUARDA LA FINESTRA', say: 'LA CITTÀ, PICCOLA COME UN RICORDO.' },
+    ...[62, 112, 208, 258].map(sx => ({ from: 30, to: 53.3, rect: () => [sx - 24, 104, 48, 58], verb: 'BEVI', label: 'BEVI ESPRESSO', seek: 41.8 })),
+    { from: 56.4, to: 99, rect: () => [126, 28, 82, 56], verb: 'GUARDA', label: 'GUARDA LA LUNA', seek: 62.7 },
+  ];
+  const ITEMS = [
+    { label: 'TAZZINA', say: 'TAZZINA: ANCORA CALDA.' },
+    { label: 'BOMBOLETTA', say: 'BOMBOLETTA: QUASI VUOTA.' },
+    { label: 'CHIP', say: 'UN CHIP. ODORA DI OZONO.' },
+    { label: 'UN EURO', say: 'UN EURO. BASTA PER UN SOGNO.' },
+  ];
+  const ICONS = [
+    '<rect x="5" y="4" width="8" height="8" fill="#f0ecff"/><rect x="6" y="5" width="6" height="2" fill="#5a3228"/><rect x="13" y="6" width="2" height="4" fill="none" stroke="#f0ecff" stroke-width="1"/>',
+    '<rect x="7" y="3" width="5" height="10" fill="#2de2e6"/><rect x="8" y="1" width="3" height="2" fill="#f0ecff"/>',
+    '<rect x="5" y="4" width="9" height="7" fill="#ff8a3d"/><path d="M5 3h1M7 3h1M9 3h1M11 3h1M13 3h1M5 12h1M7 12h1M9 12h1M11 12h1M13 12h1" stroke="#ffc857" stroke-width="1"/>',
+    '<text x="5" y="12" font-family="Unifont, monospace" font-size="13" fill="#ffc857">€</text>',
+  ];
+
+  // ---- build the verb bar (positions match the in-game bar: 8px per glyph + 6px padding)
+  const verbBtns = {};
+  let x = 3;
+  SCENES.map(s => s.verb).sort((a, b) => ['CAMMINA', 'GUARDA', 'PARLA', 'BEVI'].indexOf(a) - ['CAMMINA', 'GUARDA', 'PARLA', 'BEVI'].indexOf(b))
+    .forEach(v => {
+      const w = v.length * 8 + 6;
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'verb'; b.textContent = v; b.id = 'verb-' + v.toLowerCase();
+      b.style.left = `calc(${x} * var(--px))`; b.style.width = `calc(${w + 1} * var(--px))`;
+      b.addEventListener('click', e => { e.stopPropagation(); goVerb(v); });
+      b.addEventListener('pointerenter', () => { hoverText = SCENES.find(s => s.verb === v).idle; });
+      b.addEventListener('pointerleave', () => { hoverText = null; });
+      bar.appendChild(b); verbBtns[v] = b; x += w + 3;
+    });
+  ITEMS.forEach((it, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'slot'; b.setAttribute('aria-label', it.label); b.id = 'slot-' + i;
+    b.style.left = `calc(${232 + i * 22} * var(--px))`;
+    b.innerHTML = `<svg viewBox="0 0 18 15" aria-hidden="true">${ICONS[i]}</svg>`;
+    b.addEventListener('click', e => { e.stopPropagation(); say(it.say); });
+    b.addEventListener('pointerenter', () => { hoverText = 'GUARDA: ' + it.label; });
+    b.addEventListener('pointerleave', () => { hoverText = null; });
+    bar.appendChild(b);
+  });
+
+  // ---- state
+  let hoverText = null, hoverVerb = null, sayText = null, sayUntil = 0, started = false;
+  const say = s => { sayText = s; sayUntil = performance.now() + 2600; };
+
+  const seek = t => {
+    fineEl.hidden = true;
+    vid.currentTime = Math.min(t, DUR - 0.05);
+    if (started) vid.play().catch(() => {});
+  };
+  const goVerb = v => { if (!started) begin(); const s = SCENES.find(s => s.verb === v); seek(s.start); say(s.idle); };
+
+  const begin = () => {
+    started = true; startEl.hidden = true; vid.muted = false;
+    vid.play().catch(() => { vid.muted = true; vid.play().catch(() => {}); });
+  };
+  document.getElementById('go').addEventListener('click', e => { e.stopPropagation(); begin(); });
+  document.getElementById('again').addEventListener('click', e => { e.stopPropagation(); seek(0); });
+  vid.addEventListener('ended', () => { fineEl.hidden = false; });
+
+  const toGame = e => {
+    const r = screen.getBoundingClientRect();
+    return [(e.clientX - r.left) / px, (e.clientY - r.top) / px];
+  };
+  const hit = (gx, gy) => {
+    const t = vid.currentTime;
+    if (gy >= 162) return null;
+    for (const h of HOT) {
+      if (t < h.from || t >= h.to) continue;
+      const [x0, y0, w, hh] = h.rect(t);
+      if (gx >= x0 && gx < x0 + w && gy >= y0 && gy < y0 + hh) return h;
+    }
+    return null;
+  };
+
+  screen.addEventListener('pointermove', e => {
+    if (e.target.closest('.bar, .cover')) { screen.classList.remove('hot'); return; }
+    const h = hit(...toGame(e));
+    screen.classList.toggle('hot', !!h);
+    hoverText = h ? h.label : null; hoverVerb = h ? h.verb : null;
+  });
+  screen.addEventListener('pointerleave', () => { hoverText = null; hoverVerb = null; screen.classList.remove('hot'); });
+  screen.addEventListener('click', e => {
+    if (e.target.closest('.bar, .cover')) return;
+    if (!started) { begin(); return; }
+    const [gx, gy] = toGame(e);
+    const ring = document.createElement('div');
+    ring.className = 'ring'; ring.style.left = e.clientX - screen.getBoundingClientRect().left + 'px';
+    ring.style.top = e.clientY - screen.getBoundingClientRect().top + 'px';
+    screen.appendChild(ring); setTimeout(() => ring.remove(), 500);
+    const h = hit(gx, gy);
+    if (!h) return;
+    if (h.seek != null) { seek(h.seek); say(h.label); }
+    else say(h.say);
+  });
+
+  // ---- controls
+  const pp = document.getElementById('pp'), mute = document.getElementById('mute');
+  pp.addEventListener('click', () => { if (!started) return begin(); vid.paused ? vid.play().catch(() => {}) : vid.pause(); });
+  mute.addEventListener('click', () => { vid.muted = !vid.muted; });
+  document.getElementById('fs').addEventListener('click', () => {
+    try {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else (screen.requestFullscreen || screen.webkitRequestFullscreen).call(screen).catch?.(() => {});
+    } catch (e) {}
+  });
+  const track = document.getElementById('track');
+  track.addEventListener('click', e => {
+    const r = track.getBoundingClientRect();
+    if (!started) begin();
+    seek((e.clientX - r.left) / r.width * DUR);
+  });
+  SCENES.slice(1).forEach(s => { const b = document.createElement('b'); b.style.left = (s.start / DUR * 100) + '%'; track.appendChild(b); });
+  addEventListener('keydown', e => {
+    if (e.target.closest('input, textarea')) return;
+    const n = '1234'.indexOf(e.key);
+    if (n >= 0) goVerb(['CAMMINA', 'GUARDA', 'PARLA', 'BEVI'][n]);
+    else if (e.key === ' ') { e.preventDefault(); pp.click(); }
+    else if (e.key === 'r' || e.key === 'R') { if (!started) begin(); seek(0); }
+  });
+
+  // ---- per-frame UI
+  const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  const fill = document.getElementById('fill'), timeEl = document.getElementById('time');
+  const tick = () => {
+    const t = vid.currentTime || 0;
+    const active = hoverVerb || sceneAt(t).verb;
+    for (const v in verbBtns) verbBtns[v].classList.toggle('on', v === active);
+    actionEl.textContent = performance.now() < sayUntil ? sayText : (hoverText || '');
+    fill.style.width = (t / DUR * 100) + '%';
+    timeEl.textContent = `${fmt(t)} / ${fmt(DUR)}`;
+    pp.textContent = vid.paused ? 'PLAY' : 'PAUSA';
+    mute.textContent = vid.muted ? 'AUDIO: NO' : 'AUDIO: SÌ';
+    requestAnimationFrame(tick);
+  };
+  tick();
+})();
+</script>
